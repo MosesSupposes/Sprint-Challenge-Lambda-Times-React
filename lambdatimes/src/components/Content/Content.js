@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import Tabs from './Tabs';
-import Cards from './Cards';
+import Tabs from './Tabs'
+import Cards from './Cards'
 
 // Importing our tab and card data. No need to change anything here.
-import { tabData, cardData } from '../../data';
+import { tabData, cardData } from '../../data'
 
 export default class Content extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       selected: 'all',
       tabs: [],
       cards: []
-    };
+    }
   }
 
   componentDidMount() {
@@ -29,9 +29,10 @@ export default class Content extends Component {
     this.setState({
       selected: tab
     })
-  };
+  }
 
   filterCards = () => {
+    const bySelected = (card) => this.state.selected === card.tab
     /* Right now this function only returns the cards on state.
       We're going to make this function more dynamic
       by using it to filter out our cards for when a tab is selcted
@@ -44,8 +45,10 @@ export default class Content extends Component {
           of the items from cardData. 
         - else, it should only return those cards whose 'tab' matched this.state.selected.
     */
-    return this.state.cards;
-  };
+    return (this.state.selected === 'all')
+        ? this.state.cards
+        : this.state.cards.filter(bySelected)
+  }
 
   render() {
     return (
@@ -62,6 +65,6 @@ export default class Content extends Component {
         />
         <Cards cards={this.filterCards()} />
       </div>
-    );
+    )
   }
 }
