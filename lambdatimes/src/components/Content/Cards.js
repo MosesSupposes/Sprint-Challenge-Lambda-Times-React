@@ -13,7 +13,7 @@ export default function Cards (props) {
   )
 }
 
-Cards.PropTypes = {
+Cards.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape({
     headline: PropTypes.string.isRequired,
     tab: PropTypes.string.isRequired,
