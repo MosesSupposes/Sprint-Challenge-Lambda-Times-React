@@ -4,10 +4,11 @@ import PropTypes from 'prop-types'
 
 
 export default function Cards (props) {
+  const renderCard = (mappedVal, i) => <Card key={i} {...mappedVal} />
   return (
     <div className="cards-container">
       {
-        props.cards.map(Card)
+        props.cards.map(renderCard)
       }
     </div>
   )

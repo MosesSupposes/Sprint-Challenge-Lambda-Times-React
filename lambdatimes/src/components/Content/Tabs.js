@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 export default function Tabs(props) {
   const renderTab = (props) => (mappedVal, i) => (
-    <Tab tab={mappedVal} postition={i} {...props} />
+    <Tab tab={mappedVal} key={i} {...props} />
   )
 
   return (
